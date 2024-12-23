@@ -1,10 +1,6 @@
-/* Set a default width for the entire page */
-html, body {
-  width: 100vw;
-}
-
 /* Center the login container vertically and horizontally */
 .container {
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;

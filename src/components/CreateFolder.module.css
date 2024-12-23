@@ -1,0 +1,36 @@
+.overlay{
+    position: absolute;
+    /* dis */
+}
+.popupContainer{
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+    align-items: center;
+}
+.popup{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+    border-radius: 0.5rem;
+    width: 18rem;
+    padding: 1.5rem 1.5rem;
+    gap: 1.2rem;
+    right: 1rem;
+    z-index: 10;
+    background-color: #121212;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.8);
+    top: 3.2rem;
+    left: -13rem;
+}
+.popupButton{
+    display: flex;
+    gap: 3rem;
+    button{
+        background-color: #121212;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+}

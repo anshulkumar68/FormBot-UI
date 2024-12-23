@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import './index.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import SignUp from './routes/signUp'
-import Login from './routes/Login'
-import LandingPage from './routes/LandingPage'
-import Home from './routes/Home'
+import SignUp from './pages/SignUp'
+import Login from './pages/Login'
+import LandingPage from './pages/LandingPage'
+import Dashboard from './pages/Dashboard'
 
 function App() {
 
@@ -15,8 +15,7 @@ function App() {
         <Route path="/" element={<LandingPage/>}></Route>
         <Route path="/signup" element={<SignUp/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
-        <Route path="/home" element={<Home/>}></Route>
-        <Route path="/landingpage" element={<LandingPage/>}></Route>
+        <Route path="/dashboard" element={<Dashboard/>}></Route>
       </Routes>
       </BrowserRouter>
     </>

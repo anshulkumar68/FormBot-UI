@@ -1,13 +1,15 @@
 html,
 body {
-  width: 98vw;
-  background: linear-gradient(0deg, #121212, #121212),
+  width: 98.5vw;
+  /* background: linear-gradient(0deg, #121212, #121212),
 linear-gradient(0deg, #171923, #171923),
-linear-gradient(0deg, #171923, #171923);
+linear-gradient(0deg, #171923, #171923); */
 }
 
 .container{
+  background-color: #121212;
   position: relative;
+  /* margin */
 }
 
 /* Navbar container */
