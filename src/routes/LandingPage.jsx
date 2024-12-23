@@ -23,7 +23,7 @@ const LandingPage = () => {
           </div>
         </nav>
 
-        <main>
+        <main className={styles.main}>
           <img src={lpTriangle} alt="triangle image" className={`${styles.shapes} ${styles.triangle}`}/>
               <div className={styles.textContainer}>
       <h1 className={styles.gradientText}>Build advanced chatbots</h1>
