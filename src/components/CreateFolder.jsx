@@ -29,9 +29,9 @@ const CreateFolder = ({ setIsPopupOpen, addFolder }) => {
               onChange={(e) => setFolderName(e.target.value)}
             />
             <p className={styles.popupButton}>
-              <button onClick={handleCreate}>Done</button>
+              <button onClick={handleCreate} className={styles.done}>Done</button>
               <span>|</span>
-              <button onClick={handleClosePopup}>Cancel</button>
+              <button onClick={handleClosePopup} className={styles.cancel}>Cancel</button>
             </p>
           </div>
         </div>

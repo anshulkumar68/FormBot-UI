@@ -65,6 +65,11 @@ const Dashboard = () => {
             ))}
           </div>
 
+          {/* POPUP */}
+          {isPopupOpen && (
+            <CreateFolder setIsPopupOpen={setIsPopupOpen} addFolder={addFolder} />
+          )}
+
           {/* TYPEBOTS */}
           <div className={styles.typeBotContainer}>
             <div className={styles.typeBotS}>
@@ -74,9 +79,7 @@ const Dashboard = () => {
           </div>
 
           {/* POPUP */}
-          {isPopupOpen && (
-            <CreateFolder setIsPopupOpen={setIsPopupOpen} addFolder={addFolder} />
-          )}
+          
         </main>
       </div>
     </div>
