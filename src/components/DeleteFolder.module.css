@@ -13,17 +13,17 @@
     border: 1px solid rgb(75, 74, 74);
     border-radius: 0.8rem;
     width: 21rem;
-    height: 12rem;
-    padding: 2rem 1.5rem;
-    gap: 1.6rem;
+    height: 9rem;
+    padding: 1.6rem 1.5rem;
+    gap: 1.8rem;
     top: 9.2rem;
     left: 21rem;
     z-index: 10;
     background-color: #121212;
-    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.8);
     span{
         font-weight: 550;
-        font-size: 1rem;
+        font-size: 0.9rem;
         text-align: left;
     }
     input{
@@ -35,13 +35,23 @@
         font-weight: 700;
     }
 }
+.confirmDeleteText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    span{
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+}
 .popupButton{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 4rem;
     font-weight: 700;
-    .done{
+    .confirm{
         color: #1A5FFF;
     }
     span{

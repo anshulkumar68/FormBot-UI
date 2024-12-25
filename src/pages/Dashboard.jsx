@@ -1,14 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Dashboard.module.css";
 import { AiOutlineFolderAdd } from "react-icons/ai";
 import { IoAdd } from "react-icons/io5";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import ThemeToggle from "../components/ThemeToggle";
 import CreateFolder from "../components/CreateFolder";
+import DeleteFolder from "../components/DeleteFolder";
+import ShareForm from "../components/ShareForm";
+import { deleteFolder, getAllFolder } from "../services";
 
 const Dashboard = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [folders, setFolders] = useState([]); // State to manage folders
-  const [isDarkMode, setIsDarkMode] = useState(true); // State for theme
+  const [username, setUsername] = useState("");
+  const [isFolderPopupOpen, setIsFolderPopupOpen] = useState(false);
+  const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
+  const [folders, setFolders] = useState([]); // to manage folders
+  const [isDarkMode, setIsDarkMode] = useState(false); // for theme
+  const [folderToDelete, setFolderToDelete] = useState(null); // for the folder index to delete
+  const [isSharePopupOpen, setIsSharePopupOpen] = useState(false);
+
+  const fetchFolder = async () =>{
+    try{  
+      const res = await getAllFolder();
+      if(res.status === 200){
+        const data = await res.json();
+        setFolders(data.folders);
+        console.log(folders);
+      }
+    }
+    catch(error){
+      console.error(`unable to fetch : ${error}`);
+    }
+}
+
+  useEffect(()=>{
+    const storedUsername = localStorage.getItem("username");
+    if(storedUsername){
+      setUsername(storedUsername);
+    } 
+    fetchFolder();
+  },[])
 
   const addFolder = (folderName) => {
     // Check if folderName already exists (case-insensitive)
@@ -27,21 +57,25 @@ const Dashboard = () => {
     setIsDarkMode((prevMode) => !prevMode);
   };
 
+  const deleteFolderById = (indexToDelete) => {
+    // Filter out the folder to delete
+    setFolders((prevFolders) => prevFolders.filter((folder, index) => index !== indexToDelete));
+  };
+
   return (
     <div className={`${styles.container} ${isDarkMode ? styles.lightTheme : styles.darkTheme}`}>
       <div className={styles.container}>
         <nav className={styles.dashboardNav}>
           <div className={styles.navLeft}></div>
           <select className={isDarkMode ? styles.lightTheme : styles.darkTheme}>
-            <option value="">Workspace</option>
+            <option value="">{username}'s Workspace</option>
             <option value="">Settings</option>
             <option value="">Logout</option>
           </select>
 
           <div className={styles.navRight}>
-            {/* Integrate ThemeToggle with props */}
             <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-            <button className={`${styles.btn} ${styles.btnShare}`}>Share</button>
+            <button className={`${styles.btn} ${styles.btnShare}`} onClick={()=>setIsSharePopupOpen(true)}>Share</button>
           </div>
         </nav>
         <hr />
@@ -51,7 +85,7 @@ const Dashboard = () => {
           <div className={styles.folderContainer}>
             <div
               className={styles.folderItem}
-              onClick={() => setIsPopupOpen(true)}
+              onClick={() => setIsFolderPopupOpen(true)}
             >
               <AiOutlineFolderAdd className={styles.folderIcon} />
               <span>Create a folder</span>
@@ -60,15 +94,17 @@ const Dashboard = () => {
             {folders.map((folder, index) => (
               <div key={index} className={styles.folderItem}>
                 <AiOutlineFolderAdd className={styles.folderIcon} />
-                <span>{folder}</span>
+                <span>{folder.foldername}</span>
+                <RiDeleteBin6Line
+                  className={styles.deleteIcon}
+                  onClick={() => {
+                    setFolderToDelete(folder._id); // Set the folder index to delete
+                    setIsDeletePopupOpen(true); // Open the delete popup
+                  }}
+                />
               </div>
             ))}
           </div>
-
-          {/* POPUP */}
-          {isPopupOpen && (
-            <CreateFolder setIsPopupOpen={setIsPopupOpen} addFolder={addFolder} />
-          )}
 
           {/* TYPEBOTS */}
           <div className={styles.typeBotContainer}>
@@ -78,8 +114,24 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* POPUP */}
-          
+          {/* FOLDER POPUP */}
+          {isFolderPopupOpen && (
+            <CreateFolder setIsFolderPopupOpen={setIsFolderPopupOpen} addFolder={addFolder} />
+          )}
+
+          {/* DELETE POPUP */}
+          {isDeletePopupOpen && (
+             <DeleteFolder
+              setIsDeletePopupOpen={setIsDeletePopupOpen}
+              deleteFolderById={deleteFolderById}
+              folderId={folderToDelete} // Pass the folder index to delete
+              />
+          )}
+
+          {/* SHARE POPUP */}
+          {isSharePopupOpen && (
+            <ShareForm setIsSharePopupOpen={setIsSharePopupOpen}/>
+          )}
         </main>
       </div>
     </div>

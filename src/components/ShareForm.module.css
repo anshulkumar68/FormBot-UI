@@ -1,0 +1,94 @@
+.overlay {
+  position: absolute;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+.popupContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 33rem;
+    height: 22rem;
+    gap: 1.5rem;
+  padding: 0.2rem 1.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 1rem;
+  position: absolute;
+  z-index: 10;
+  border: 1px solid rgb(75, 74, 74);
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+      input{
+        border: none;
+        background-color: rgb(31, 30, 30);
+        width: auto;
+        padding: 1.3rem;
+    }
+    input::placeholder{
+        font-weight: 700;
+    } 
+
+}
+.closeIconContainer{
+    height: 3rem;
+}
+.closeIcon{
+    color: red;
+    font-weight: 800;
+    font-size: 1.2rem;
+    float: right;
+}
+.inviteEmail{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.inviteEmailEditView{
+    display: flex;
+    justify-content: space-between;
+    select{
+        background-color: rgb(31, 30, 30);
+        color: white;
+        border: none;
+        border-radius: 0.2rem;
+        padding: 3px 6px;
+        font-size: 0.7rem;
+    }
+}
+.copyLink{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+     span{
+        text-align: left;
+    }
+}
+.button{
+    background-color: #1A5FFF;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 0.2rem ;
+    color: white;
+}
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background-color: #1A5FFF; 
+}
+.btn:hover {
+  background-color: #1e4db7;
+}
