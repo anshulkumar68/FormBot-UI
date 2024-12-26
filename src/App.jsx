@@ -5,6 +5,7 @@ import SignUp from './pages/SignUp'
 import Login from './pages/Login'
 import LandingPage from './pages/LandingPage'
 import Dashboard from './pages/Dashboard'
+import Settings from './pages/Settings'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/signup" element={<SignUp/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/dashboard" element={<Dashboard/>}></Route>
+        <Route path="/settings" element={<Settings/>}></Route>
       </Routes>
       </BrowserRouter>
     </>

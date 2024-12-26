@@ -2,20 +2,26 @@ import React, { useState } from "react";
 import styles from "./DeleteFolder.module.css";
 import { deleteFolder } from "../services";
 
-const DeleteFolder = ({ setIsDeletePopupOpen, deleteFolderById, folderId }) => {
+const DeleteFolder = ({ setIsDeletePopupOpen, deleteFolderById, folderIndexToDelete }) => {
+  const [error, setError] = useState();
 
   const handleDelete = async () => {
-    console.log(folderId);
+    console.log(folderIndexToDelete);
     try{
-      const res = await deleteFolder(folderId);
+      const res = await deleteFolder(folderIndexToDelete);
       if(res.status === 200){
         const data = await res.json();
-        deleteFolderById(folderId)
+        deleteFolderById(folderIndexToDelete)
         handleClosePopup();
+      }
+      else if(res.status === 403){
+        const errorData = await res.json();
+        setError(errorData.message || "failed to delete folder")
       }
   }
     catch(error){
       console.error(`error while deleting ${error}`);
+      setError("error occurred please try again");
     }
   };
 
@@ -30,6 +36,7 @@ const DeleteFolder = ({ setIsDeletePopupOpen, deleteFolderById, folderId }) => {
           <p className={styles.confirmDeleteText}>
             <span>Are you sure you want to </span>
             <span>delete this folder?</span>
+            {error && <span className={styles.errorText}>{error}</span>}
           </p>
           <p className={styles.popupButton}>
             <button onClick={handleDelete} className={styles.confirm}>
@@ -47,8 +54,3 @@ const DeleteFolder = ({ setIsDeletePopupOpen, deleteFolderById, folderId }) => {
 };
 
 export default DeleteFolder;
-
-
-
-    // deleteFolderById(folderId); // Use the provided index to delete the folder
-    // setIsDeletePopupOpen(false); // Close the delete popup after deletion

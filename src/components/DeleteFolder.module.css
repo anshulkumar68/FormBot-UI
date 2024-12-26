@@ -23,7 +23,6 @@
     box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.8);
     span{
         font-weight: 550;
-        font-size: 0.9rem;
         text-align: left;
     }
     input{
@@ -41,7 +40,6 @@
     justify-content: center;
     align-items: center;
     span{
-        font-size: 1.1rem;
         font-weight: 600;
     }
 }
@@ -67,3 +65,8 @@
         font-size: 1rem;
     }
 }
+.errorText{
+    color: red;
+    font-size: 0.7rem;
+    margin-top: 0.15rem;
+  }

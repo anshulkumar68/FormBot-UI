@@ -15,7 +15,7 @@ const Dashboard = () => {
   const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
   const [folders, setFolders] = useState([]); // to manage folders
   const [isDarkMode, setIsDarkMode] = useState(false); // for theme
-  const [folderToDelete, setFolderToDelete] = useState(null); // for the folder index to delete
+  const [folderIndexToDelete, setFolderIndexToDelete] = useState(null); // for the folder index to delete
   const [isSharePopupOpen, setIsSharePopupOpen] = useState(false);
 
   const fetchFolder = async () =>{
@@ -24,8 +24,6 @@ const Dashboard = () => {
       if(res.status === 200){
         const data = await res.json();
         setFolders(data.folders);
-        console.log("fodler state:",folders);
-        console.log("fetchfolder called:",folders);
       }
     }
     catch(error){
@@ -42,16 +40,6 @@ const Dashboard = () => {
   },[])
 
   const addFolder = (folderName) => {
-    // Check if folderName already exists (case-insensitive)
-    // console.log("check sensitive", folderName);
-    // const isDuplicate = folders.some(
-    //   (folder) => folder.toLowerCase() === folderName.toLowerCase()
-    // );
-
-    // if (isDuplicate) {
-    //   alert("folder with the same name already exist");
-    //   return;
-    // }
     setFolders((prevFolders) => [...prevFolders, folderName]);
     fetchFolder();
   };
@@ -60,7 +48,7 @@ const Dashboard = () => {
     setIsDarkMode((prevMode) => !prevMode);
   };
 
-  const deleteFolderById = (indexToDelete) => {
+  const deleteFolderById = (folderId) => {
     // Filter out the folder to delete
     setFolders((prevFolders) => prevFolders.filter((folder) => folder._id !== folderId));
     fetchFolder();
@@ -71,12 +59,12 @@ const Dashboard = () => {
       <div className={styles.container}>
         <nav className={styles.dashboardNav}>
           <div className={styles.navLeft}></div>
-          <select className={isDarkMode ? styles.lightTheme : styles.darkTheme}>
-            <option value="">{username}'s Workspace</option>
+          <select className={`${styles.select} ${isDarkMode ? styles.lightTheme : styles.darkTheme}`}>
+            <option selected value="">{username}'s workspace</option>
             <option value="">Settings</option>
             <option value="">Logout</option>
           </select>
-
+ 
           <div className={styles.navRight}>
             <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
             <button className={`${styles.btn} ${styles.btnShare}`} onClick={()=>setIsSharePopupOpen(true)}>Share</button>
@@ -102,7 +90,7 @@ const Dashboard = () => {
                 <RiDeleteBin6Line
                   className={styles.deleteIcon}
                   onClick={() => {
-                    setFolderToDelete(folder._id); // Set the folder index to delete
+                    setFolderIndexToDelete(folder._id); // Set the folder index to delete
                     setIsDeletePopupOpen(true); // Open the delete popup
                   }}
                 />
@@ -128,7 +116,7 @@ const Dashboard = () => {
              <DeleteFolder
               setIsDeletePopupOpen={setIsDeletePopupOpen}
               deleteFolderById={deleteFolderById}
-              folderId={folderToDelete} // Pass the folder index to delete
+              folderIndexToDelete={folderIndexToDelete} // Pass the folder index to delete
               />
           )}
 

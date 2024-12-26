@@ -9,7 +9,7 @@ const CreateFolder = ({ setIsFolderPopupOpen, addFolder }) => {
   const handleCreate = async () => {
     // Validate input
     if (!folderName.trim()) {
-      setError("Folder name cannot be empty.");
+      setError("folder name cannot be empty");
       return;
     }
  
@@ -17,19 +17,18 @@ const CreateFolder = ({ setIsFolderPopupOpen, addFolder }) => {
       const res = await createFolder(folderName); // API call
       if (res.status === 200) {
         const data = await res.json(); // Parse JSON
-        console.log("foldername response : ",data.folder.foldername);
         addFolder(data.folder.foldername); // Pass to parent
         setFolderName(""); // Clear input
         handleClosePopup(); // Close popup
     
       } 
-      else {
+      else if(res.status === 400){
         const errorData = await res.json();
-        setError(errorData.message || "Failed to create folder!");
+        setError(errorData.message || 'failed to create folder')
       }
     } catch (error) {
       console.error("Error creating folder:", error);
-      setError("An error occurred. Please try again.");
+      setError("error occurred please try again");
     }
   };
 
@@ -42,6 +41,7 @@ const CreateFolder = ({ setIsFolderPopupOpen, addFolder }) => {
       <div className={styles.overlay} onClick={handleClosePopup}>
         <div className={styles.popupContainer} onClick={(e) => e.stopPropagation()}>
           <span>Create New Folder</span>
+          <p className={styles.inputField}>
           <input
             type="text"
             placeholder="Enter folder name"
@@ -49,6 +49,7 @@ const CreateFolder = ({ setIsFolderPopupOpen, addFolder }) => {
             onChange={(e) => setFolderName(e.target.value)}
           />
           {error && <p className={styles.errorText}>{error}</p>} {/* Show error message */}
+          </p>
           <p className={styles.popupButton}>
             <button onClick={handleCreate} className={styles.done}>
               Done
