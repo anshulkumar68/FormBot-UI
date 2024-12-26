@@ -3,10 +3,9 @@ import styles from "./DeleteFolder.module.css";
 import { deleteFolder } from "../services";
 
 const DeleteFolder = ({ setIsDeletePopupOpen, deleteFolderById, folderId }) => {
-  const handleDelete = async () => {
-    // deleteFolderById(folderId); // Use the provided index to delete the folder
-    // setIsDeletePopupOpen(false); // Close the delete popup after deletion
 
+  const handleDelete = async () => {
+    console.log(folderId);
     try{
       const res = await deleteFolder(folderId);
       if(res.status === 200){
@@ -49,3 +48,7 @@ const DeleteFolder = ({ setIsDeletePopupOpen, deleteFolderById, folderId }) => {
 
 export default DeleteFolder;
 
+
+
+    // deleteFolderById(folderId); // Use the provided index to delete the folder
+    // setIsDeletePopupOpen(false); // Close the delete popup after deletion

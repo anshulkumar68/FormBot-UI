@@ -24,7 +24,8 @@ const Dashboard = () => {
       if(res.status === 200){
         const data = await res.json();
         setFolders(data.folders);
-        console.log(folders);
+        console.log("fodler state:",folders);
+        console.log("fetchfolder called:",folders);
       }
     }
     catch(error){
@@ -42,15 +43,17 @@ const Dashboard = () => {
 
   const addFolder = (folderName) => {
     // Check if folderName already exists (case-insensitive)
-    const isDuplicate = folders.some(
-      (folder) => folder.toLowerCase() === folderName.toLowerCase()
-    );
+    // console.log("check sensitive", folderName);
+    // const isDuplicate = folders.some(
+    //   (folder) => folder.toLowerCase() === folderName.toLowerCase()
+    // );
 
-    if (isDuplicate) {
-      alert("Folder with the same name already exists!");
-      return;
-    }
+    // if (isDuplicate) {
+    //   alert("folder with the same name already exist");
+    //   return;
+    // }
     setFolders((prevFolders) => [...prevFolders, folderName]);
+    fetchFolder();
   };
 
   const toggleTheme = () => {
@@ -59,7 +62,8 @@ const Dashboard = () => {
 
   const deleteFolderById = (indexToDelete) => {
     // Filter out the folder to delete
-    setFolders((prevFolders) => prevFolders.filter((folder, index) => index !== indexToDelete));
+    setFolders((prevFolders) => prevFolders.filter((folder) => folder._id !== folderId));
+    fetchFolder();
   };
 
   return (

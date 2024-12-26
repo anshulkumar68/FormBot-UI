@@ -17,7 +17,7 @@ const CreateFolder = ({ setIsFolderPopupOpen, addFolder }) => {
       const res = await createFolder(folderName); // API call
       if (res.status === 200) {
         const data = await res.json(); // Parse JSON
-        console.log("full response",data.folder.foldername);
+        console.log("foldername response : ",data.folder.foldername);
         addFolder(data.folder.foldername); // Pass to parent
         setFolderName(""); // Clear input
         handleClosePopup(); // Close popup
