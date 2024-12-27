@@ -4,21 +4,42 @@ import { MdPersonOutline } from "react-icons/md";
 import { IoEyeOutline } from "react-icons/io5";
 import { CiLock } from "react-icons/ci";
 import { IoLogOutOutline } from "react-icons/io5";
+import { handleLogout } from "../utils/authLogout";
+import { useNavigate } from "react-router-dom";
+import { updateDetails } from "../services";
 
 const Settings = () => {
+  const navigate = useNavigate();
   const [settingsFormData, setSettingsFormData] = useState({
     username: "",
     email: "",
-    password: "",
-    confirmPassword: "",
+    oldPassword: "",
+    newPassword: "",
   });
 
   const [errors, setErrors] = useState({
     username: "",
     email: "",
-    password: "",
-    confirmPassword: "",
+    oldPassword: "",
+    newPassword: "",
   });
+
+  const handleUpdate = async (e) =>{
+    e.preventDefault();
+    console.log(settingsFormData)
+
+    try{
+      const res = await updateDetails(settingsFormData);
+      if(res.status === 200){
+        const data = await res.json();
+        console.log(data)
+      }
+    }
+    catch(error){
+      console.error("error in updating:", error);
+      alert("error in updating");
+    }
+  }
 
   return (
     <div className={styles.container}>
@@ -52,15 +73,15 @@ const Settings = () => {
           <input
             className={styles.input}
             type="email"
+            value={settingsFormData.email}
+            name="email"
+            placeholder="Update Email"
             onChange={(e) =>
               setSettingsFormData({
                 ...settingsFormData,
                 [e.target.name]: e.target.value,
               })
             }
-            value={settingsFormData.email}
-            name="email"
-            placeholder="Update Email"
           />
           <IoEyeOutline className={styles.icon}/>
           {errors.email && <p className={styles.errorText}>{errors.email}</p>}
@@ -73,8 +94,8 @@ const Settings = () => {
             className={styles.input}
             type="password"
             placeholder="Old Password"
-            name="password"
-            value={settingsFormData.password}
+            name="oldPassword"
+            value={settingsFormData.oldPassword}
             onChange={(e) =>
               setSettingsFormData({
                 ...settingsFormData,
@@ -95,8 +116,8 @@ const Settings = () => {
             className={styles.input}
             type="password"
             placeholder="New Password"
-            name="confirmPassword"
-            value={settingsFormData.confirmPassword}
+            name="newPassword"
+            value={settingsFormData.newPassword}
             onChange={(e) =>
               setSettingsFormData({
                 ...settingsFormData,
@@ -105,19 +126,19 @@ const Settings = () => {
             }
           />
           <IoEyeOutline className={styles.icon}/>
-          {errors.confirmPassword && (
-            <p className={styles.errorText}>{errors.confirmPassword}</p>
+          {errors.newPassword && (
+            <p className={styles.errorText}>{errors.newPassword}</p>
           )}
         </div>
 
         {/* Submit Button */}
-        <button type="submit" className={styles.updateBtn}>
+        <button type="submit" className={styles.updateBtn} onClick={handleUpdate}>
           Update
         </button>
       </form>
       </div>
-<div className={styles.logoutContainer}>
-      <button className={styles.logoutBtn}><IoLogOutOutline /><span>Log out</span></button>
+<div className={styles.logoutContainer} >
+      <button className={styles.logoutBtn} onClick={()=>handleLogout(navigate)}><IoLogOutOutline/><span>Log out</span></button>
 </div>
 
     </div>

@@ -22,8 +22,21 @@ export const login = (data) =>{
     });
 }
 
-// GET
+// UPDATE DETAILS
+export const updateDetails = async(data)=>{
+  return fetch(`${URL}/user/update`, {
+    method : 'POST',
+    headers : {
+        'Content-Type' : 'application/json',
+        "Authorization": `${localStorage.getItem('token')}`,
+    },
+    body : JSON.stringify(data)
+  })
+}
+
+// GET FOLDER
 export const getAllFolder = async() =>{
+
   return await fetch(`${URL}/folder`, {
     method : "GET",
     headers : {
@@ -33,7 +46,7 @@ export const getAllFolder = async() =>{
   })
 }
 
-// CREATE
+// CREATE FOLDER
 export const createFolder = async (foldername) =>{
   return await fetch(`${URL}/folder`, {
     method : "POST",
@@ -47,7 +60,7 @@ export const createFolder = async (foldername) =>{
   })
 }
 
-// DELETE
+// DELETE FOLDER
 export const deleteFolder = async(id)=>{
   return fetch(`${URL}/folder/${id}`, {
     method : 'DELETE',

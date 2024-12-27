@@ -70,8 +70,8 @@ const SignUp = () => {
         alert("User already existed.");
       }
     } catch (error) {
-      console.error("Signup Error:", error);
-      alert("An unexpected error occurred.");
+      console.error("signup error:", error);
+      alert("error in signup");
     }
   };
 

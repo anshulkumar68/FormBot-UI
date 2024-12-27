@@ -1,10 +1,12 @@
 .dropdownContainer {
     position: relative;
-    width: 16rem;
+    width: 14rem;
     font-family: Arial, sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
     color: #ffffff;
+    cursor: pointer;
+    margin-left: 10rem;
   }
   
   .dropdownHeader {
@@ -13,7 +15,7 @@
     align-items: center;
     padding: 0.3rem 0.9rem;
     background-color: #191919;
-    border: 1px solid #333;
+    border: 1px solid grey;
     border-radius: 0.5rem; 
     cursor: pointer;
     transition: background-color 0.3s ease, border-radius 0.3s ease;
@@ -56,16 +58,16 @@
     border-bottom: 1px solid #333; 
   }
   
-  .dropdownItem:hover {
+  /* .dropdownItem:hover {
     background-color: #444;
-  }
+  } */
   
   .logout {
     color: #ff9800;
   }
   
-  .logout:hover {
+  /* .logout:hover {
     background-color: #553b00;
-  }
+  } */
   
   

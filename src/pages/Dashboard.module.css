@@ -12,23 +12,8 @@
   height: 3.5rem;
   justify-content: space-between;
   align-items: center;
+  padding-left: 10rem;
   padding-right: 3rem;
-}
-.select{
-  background-color: transparent;
-  padding: 0.3rem 0.5rem;
-  width: 12rem;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-  font-size: 0.7rem;
-  font-weight: 500;
-  margin-left: 13rem;
-  option{
-    border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-    border: 1px solid white;
-    font-weight: 500;
-  }
 }
 .navRight {
   display: flex;

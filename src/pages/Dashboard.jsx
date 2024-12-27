@@ -8,9 +8,11 @@ import CreateFolder from "../components/CreateFolder";
 import DeleteFolder from "../components/DeleteFolder";
 import ShareForm from "../components/ShareForm";
 import { getAllFolder } from "../services";
-import DropdownMenu from "../components/DropDownMenu";
+import DropdownMenu from "../components/DropdownMenu";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [isFolderPopupOpen, setIsFolderPopupOpen] = useState(false);
   const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
@@ -20,6 +22,11 @@ const Dashboard = () => {
   const [isSharePopupOpen, setIsSharePopupOpen] = useState(false);
 
   const fetchFolder = async () =>{
+    const token = localStorage.getItem('token');
+    if(!token){
+      navigate("/login");  // if no token (take user to login or use any navigate)
+      return ; 
+    }
     try{  
       const res = await getAllFolder();
       if(res.status === 200){
@@ -60,11 +67,6 @@ const Dashboard = () => {
       <div className={styles.container}>
         <nav className={styles.dashboardNav}>
           <div className={styles.navLeft}></div>
-          {/* <select className={`${styles.select} ${isDarkMode ? styles.lightTheme : styles.darkTheme}`}>
-            <option selected value="">{username}'s workspace</option>
-            <option value="">Settings</option>
-            <option value="">Logout</option>
-          </select> */}
           <DropdownMenu username={username}/>
  
           <div className={styles.navRight}>
