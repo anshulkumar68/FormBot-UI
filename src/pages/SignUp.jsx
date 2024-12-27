@@ -89,6 +89,7 @@ const SignUp = () => {
           <div className={styles.labelContainer}>
             <label>Username</label>
             <input
+            className={styles.input}
               type="text"
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
               value={formData.username}
@@ -102,6 +103,7 @@ const SignUp = () => {
           <div className={styles.labelContainer}>
             <label>Email</label>
             <input
+            className={styles.input}
               type="text"
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
               value={formData.email}
@@ -115,6 +117,7 @@ const SignUp = () => {
           <div className={styles.labelContainer}>
             <label>Password</label>
             <input
+            className={styles.input}
               type="password"
               placeholder="•••••••••••"
               name="password"
@@ -128,6 +131,7 @@ const SignUp = () => {
           <div className={styles.labelContainer}>
             <label>Confirm Password</label>
             <input
+            className={styles.input}
               type="password"
               placeholder="•••••••••••"
               name="confirmPassword"

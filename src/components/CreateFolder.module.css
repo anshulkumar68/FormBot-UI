@@ -25,15 +25,20 @@
         font-weight: 550;
         font-size: 1rem;
         text-align: left;
+        padding-left: 0.5rem;
     }
-    input{
-        border: none;
-        background-color: rgb(41, 41, 41);
-        width: 17rem;
-    }
-    input::placeholder{
-        font-weight: 700;
-    }
+}
+.input{
+    border: none;
+    background-color: rgb(41, 41, 41);
+    width: 17rem;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    color: white;
+}
+.input::placeholder{
+    font-weight: 700;
+    font-size: 0.8rem;
 }
 .inputField{
     height: 4.3rem;

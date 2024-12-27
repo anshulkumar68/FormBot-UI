@@ -71,7 +71,7 @@ html, body {
 }
 
 /* Input fields */
-input {
+.input {
   padding: 10px; 
   border-radius: 0.5rem;
   border: 1px solid #ccc;

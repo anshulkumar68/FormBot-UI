@@ -7,7 +7,8 @@ import ThemeToggle from "../components/ThemeToggle";
 import CreateFolder from "../components/CreateFolder";
 import DeleteFolder from "../components/DeleteFolder";
 import ShareForm from "../components/ShareForm";
-import { deleteFolder, getAllFolder } from "../services";
+import { getAllFolder } from "../services";
+import DropdownMenu from "../components/DropDownMenu";
 
 const Dashboard = () => {
   const [username, setUsername] = useState("");
@@ -59,11 +60,12 @@ const Dashboard = () => {
       <div className={styles.container}>
         <nav className={styles.dashboardNav}>
           <div className={styles.navLeft}></div>
-          <select className={`${styles.select} ${isDarkMode ? styles.lightTheme : styles.darkTheme}`}>
+          {/* <select className={`${styles.select} ${isDarkMode ? styles.lightTheme : styles.darkTheme}`}>
             <option selected value="">{username}'s workspace</option>
             <option value="">Settings</option>
             <option value="">Logout</option>
-          </select>
+          </select> */}
+          <DropdownMenu username={username}/>
  
           <div className={styles.navRight}>
             <ThemeToggle isDarkMode={isDarkMode} toggleTheme={toggleTheme} />

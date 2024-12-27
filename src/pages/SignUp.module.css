@@ -57,7 +57,7 @@
   font-weight: 700; 
 }
 
-input {
+.input {
   padding: 10px; 
   border-radius: 0.5rem;
   border: 1px solid #ccc;

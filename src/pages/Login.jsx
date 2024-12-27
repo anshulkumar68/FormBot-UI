@@ -96,6 +96,7 @@ const Login = () => {
         <div className={styles.labelContainer}>
           <label className={`${styles.label} ${styles.emailLabel}`}>Email</label>
           <input
+          className={styles.input}
             type="text"
             placeholder="Enter your email"
             name="email"
@@ -111,6 +112,7 @@ const Login = () => {
         <div className={styles.labelContainer}>
           <label className={styles.label}>Password</label>
           <input
+          className={styles.input}
             type="password"
             placeholder="•••••••••••"
             name="password"

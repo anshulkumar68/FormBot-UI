@@ -43,6 +43,7 @@ const CreateFolder = ({ setIsFolderPopupOpen, addFolder }) => {
           <span>Create New Folder</span>
           <p className={styles.inputField}>
           <input
+           className={styles.input}
             type="text"
             placeholder="Enter folder name"
             value={folderName}
