@@ -1,6 +1,5 @@
 .overlay {
   position: absolute;
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,37 +7,37 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(2px);
   z-index: 10;
 }
 .popupContainer{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     width: 33rem;
     height: 22rem;
-    gap: 1.5rem;
-  padding: 0.2rem 1.5rem;
+    /* gap: 1.5rem; */
+  padding: 0.1rem 1.3rem;
   padding-bottom: 0.5rem;
   border-radius: 1rem;
   position: absolute;
   z-index: 10;
   border: 1px solid rgb(75, 74, 74);
+  background-color: #131313;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
-      input{
-        border: none;
-        background-color: rgb(31, 30, 30);
-        width: auto;
-        padding: 1.3rem;
-    }
-    input::placeholder{
-        font-weight: 700;
-    } 
-
 }
+.input{
+    border: none;
+    background-color: rgb(31, 30, 30);
+    width: auto;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+}
+.input::placeholder{
+    font-weight: 700;
+} 
 .closeIconContainer{
-    height: 3rem;
+    /* height: 1.5rem; */
+    margin-bottom: 1rem;
 }
 .closeIcon{
     color: red;
@@ -88,6 +87,7 @@
   font-size: 0.9rem;
   font-weight: 700;
   background-color: #1A5FFF; 
+  border-radius: 0.5rem;
 }
 .btn:hover {
   background-color: #1e4db7;

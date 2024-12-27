@@ -26,26 +26,26 @@ const SignUp = () => {
     const newErrors = {};
 
     if(!formData.username){
-      newErrors.username = 'Username is required';
+      newErrors.username = 'username is required';
     }
 
     if(!formData.email.trim()){
       newErrors.email = 'Email is required';
     }else if(!/\S+@\S+\.\S+/.test(formData.email)){
-      newErrors.email = "Email is envalid";
+      newErrors.email = "email is envalid";
     }
  // Password validation
     if (!formData.password) {
       newErrors.password = "Password is required.";
     } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters long.";
+      newErrors.password = "password must be at least 6 characters long";
     }
 
     // Confirm password validation
     if (!formData.confirmPassword) {
-      newErrors.confirmPassword = "Confirm Password is required.";
+      newErrors.confirmPassword = "confirm Password is required.";
     } else if (formData.confirmPassword !== formData.password) {
-      newErrors.confirmPassword = "Passwords do not match.";
+      newErrors.confirmPassword = "passwords do not match.";
     }
 
     setErrors(newErrors);
@@ -60,14 +60,14 @@ const SignUp = () => {
     try {
       const res = await signup(formData);
       if (res.status === 200) {
-        alert("Registered successfully.");
+        alert("registered successfully");
         setTimeout(() => {
           navigate("/login");
         }, 1000);
       }
       else {
         console.log(res);
-        alert("User already existed.");
+        alert("user already existed");
       }
     } catch (error) {
       console.error("signup error:", error);
@@ -87,7 +87,7 @@ const SignUp = () => {
         <form onSubmit={handleRegister}>
           {/* Username */}
           <div className={styles.labelContainer}>
-            <label>Username</label>
+            <label className={styles.label}>Username</label>
             <input
             className={styles.input}
               type="text"
@@ -101,7 +101,7 @@ const SignUp = () => {
 
           {/* Email */}
           <div className={styles.labelContainer}>
-            <label>Email</label>
+            <label className={styles.label}>Email</label>
             <input
             className={styles.input}
               type="text"
@@ -115,7 +115,7 @@ const SignUp = () => {
 
           {/* Password */}
           <div className={styles.labelContainer}>
-            <label>Password</label>
+            <label className={styles.label}>Password</label>
             <input
             className={styles.input}
               type="password"
@@ -129,7 +129,7 @@ const SignUp = () => {
 
           {/* Confirm Password */}
           <div className={styles.labelContainer}>
-            <label>Confirm Password</label>
+            <label className={styles.label}>Confirm Password</label>
             <input
             className={styles.input}
               type="password"

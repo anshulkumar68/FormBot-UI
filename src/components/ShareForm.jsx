@@ -27,13 +27,14 @@ const ShareForm = ({setIsSharePopupOpen}) => {
                 </select>
                   </p>
                 <input
+                  className={styles.input}
                   type="text"
                   placeholder="Enter email id"
                   value={shareEmail}
                   onChange={(e) => setShareEmail(e.target.value)}
                 />
-                </div>
                 <button className={styles.btn}>Send Invite</button>
+                </div>
                 <p className={styles.copyLink}>
                 <span>Invite by link</span>
                 <button className={styles.btn}>Copy link</button>

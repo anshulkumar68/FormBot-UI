@@ -1,4 +1,3 @@
-/* Center the login container vertically and horizontally */
 .container {
   width: 100vw;
   display: flex;
@@ -32,7 +31,11 @@
   bottom: 0rem;
   right: 18rem;
 }
-
+.label {
+  font-size: 0.85rem; 
+  font-weight: 700;
+  margin-bottom: 0.5rem; 
+}
 .labelContainer {
   display: flex;
   flex-direction: column;
@@ -99,16 +102,12 @@
 .googleContainer img{
   padding-right: 1rem;
 }
-
-/* Sign-up text styling */
 .signuptext {
   font-size: 0.8rem; 
   margin-top: 1rem;
   text-align: center;
   color: #ccc; 
 }
-
-/* Highlighted register link */
 .signuptext span {
   color: #2563eb;
   font-weight: 700;

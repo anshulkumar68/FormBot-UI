@@ -37,14 +37,14 @@ const Login = () => {
 
     // Email validation
     if (!loginFormData.email) {
-      newErrors.email = "Email is required.";
+      newErrors.email = "email is required";
     } else if (!emailRegex.test(loginFormData.email)) {
-      newErrors.email = "Please enter a valid email address.";
+      newErrors.email = "please enter a valid email address";
     }
 
     // Password validation
     if (!loginFormData.password) {
-      newErrors.password = "Password is required.";
+      newErrors.password = "password is required";
     }
 
     setErrors(newErrors);
@@ -71,15 +71,15 @@ const Login = () => {
         alert(`Welcome, ${capitalizedUsername}`);
         navigate("/dashboard");
       } else if (res.status === 404) {
-        setErrors((prev) => ({ ...prev, email: "User not found." }));
+        setErrors((prev) => ({ ...prev, email: "user not found" }));
       } else if (res.status === 400) {
-        setErrors((prev) => ({ ...prev, password: "Password is incorrect." }));
+        setErrors((prev) => ({ ...prev, password: "password is incorrect" }));
       } else {
-        alert("An unknown error occurred.");
+        alert("an unknown error occurred.");
       }
     } catch (error) {
-      console.error("Error logging in:", error);
-      alert("An error occurred while logging in.");
+      console.error("error logging in:", error);
+      alert("an error occurred while logging in.");
     }
   };
 

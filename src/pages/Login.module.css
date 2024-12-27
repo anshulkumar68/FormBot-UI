@@ -1,9 +1,7 @@
-/* Set a default width for the entire page */
 html, body {
   width: 100vw;
 }
 
-/* Center the login container vertically and horizontally */
 .container {
   display: flex;
   justify-content: center;
@@ -21,7 +19,6 @@ html, body {
   font-size: 1.5rem;
 }
 
-/* SHAPES */
 .shapes{
   position: absolute;
 }
@@ -37,7 +34,7 @@ html, body {
   right: 18rem;
 }
 
-/* Flex column layout for labels and inputs */
+
 .labelContainer {
   display: flex;
   flex-direction: column;
@@ -50,7 +47,7 @@ html, body {
   font-weight: 700; 
   text-align: center;
 }
-/* Buttons container with gap between elements */
+
 .btnContainer {
   display: flex;
   flex-direction: column; 
@@ -61,16 +58,11 @@ html, body {
     text-align: center;
   }
 }
-
-
-/* Style for labels */
 .label {
   font-size: 0.85rem; 
   font-weight: 700;
   margin-bottom: 0.5rem; 
 }
-
-/* Input fields */
 .input {
   padding: 10px; 
   border-radius: 0.5rem;
@@ -80,8 +72,6 @@ html, body {
   background: transparent;
   color: white;
 }
-
-/* General button styling */
 .btn {
   padding: 10px 20px; 
   border-radius: 0.5rem;
@@ -96,8 +86,6 @@ html, body {
 .btn:hover {
   background-color: #1e4bb8; 
 }
-
-/* Google button styling */
 .googleContainer {
   background: #1A5FFF;
   display: flex;
@@ -113,16 +101,12 @@ html, body {
 .googleContainer img{
   padding-right: 1rem;
 }
-
-/* Sign-up text styling */
 .signuptext {
   font-size: 0.8rem; 
   margin-top: 1rem;
   text-align: center;
   color: #ccc; 
 }
-
-/* Highlighted register link */
 .signuptext span {
   color: #2563eb;
   font-weight: 700;
@@ -132,9 +116,7 @@ html, body {
 .signuptext span:hover {
   text-decoration: underline;
 }
-
-/* ERROR TEXT */
-
+/* error text */
 .errorText {
   color: red;
   font-size: 0.7rem;
