@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 8px;
+    position: relative;
+    width: 250px;
+    background: #18181B;
+  }
+  .label {
+    color: #ffffff;
+    margin-bottom: 2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .inputWrapper {
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  .input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    padding: 5px;
+    outline: none;
+  }
+  
+  .input::placeholder {
+    color: #a0a0a0;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+.btn{
+      background-color: transparent;
+      border: none;
+    }
+.deleteIcon{
+    position: relative;
+    color: red;
+      top: -2.7rem;
+      right: -1.3rem;
+}

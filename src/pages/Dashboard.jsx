@@ -10,6 +10,7 @@ import ShareForm from "../components/ShareForm";
 import { getAllFolder } from "../services";
 import DropdownMenu from "../components/DropdownMenu";
 import { useNavigate } from "react-router-dom";
+import TypeBot from "./TypeBot";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -19,7 +20,8 @@ const Dashboard = () => {
   const [folders, setFolders] = useState([]); // to manage folders
   const [isDarkMode, setIsDarkMode] = useState(false); // for theme
   const [folderIndexToDelete, setFolderIndexToDelete] = useState(null); // for the folder index to delete
-  const [isSharePopupOpen, setIsSharePopupOpen] = useState(false);
+  const [isSharePopupOpen, setIsSharePopupOpen] = useState(false); // share popip state
+  const [isTypebotOpen, setIsTypebotOpen] = useState(false); // typebot state
 
   const fetchFolder = async () =>{
     const token = localStorage.getItem('token');
@@ -104,11 +106,14 @@ const Dashboard = () => {
 
           {/* TYPEBOTS */}
           <div className={styles.typeBotContainer}>
-            <div className={styles.typeBotS}>
+            <div className={styles.typeBotS} onClick={()=>setIsTypebotOpen(true)}>
               <IoAdd className={styles.addIcon} />
               <span>Create a typebot</span>
             </div>
           </div>
+
+          {/*  TYPEBOT POPUP */}
+          {isTypebotOpen && (<TypeBot setIsTypebotOpen={setIsTypebotOpen}/>)}
 
           {/* FOLDER POPUP */}
           {isFolderPopupOpen && (

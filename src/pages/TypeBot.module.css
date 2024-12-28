@@ -1,0 +1,245 @@
+.overlay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+  }
+.container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    /* overflow: hidden; */
+    /* overflow-y: scroll; */
+}
+.navbar{
+    display:  flex;
+    justify-content: space-between;
+    padding: 0.6rem 3rem;
+}
+.navMiddle{
+    display:  flex;
+    gap: 0.7rem;
+}
+.navRight{
+    display:  flex;
+    gap: 1.2rem;
+}
+.input{
+    background-color: #7676765b;
+    padding: 0.3rem 1rem;
+    border: none;
+    border-radius: 0.3rem;
+    color: white;
+}
+.input::placeholder{
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+.btn {
+    padding: 0.3rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background-color: #1A5FFF; 
+    border-radius: 0.3rem;
+}
+.flow{
+    background-color: transparent;
+    border: 1px solid grey;
+}
+.response{
+    background-color: transparent;
+    border:none;
+}
+.share{
+    background-color: grey;
+}
+.save{
+    background-color: #4ADE80CC;
+}
+.closebtn{
+    background-color: transparent;
+    border: none;
+}
+.closeIcon{
+    color: red;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+hr {
+    border: 1px solid grey;
+  }
+.lightTheme {
+    background-color: #e5e5e5;
+    color: #000000;
+  }
+  
+.darkTheme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.main{
+    display:  flex;
+    padding: 1rem 1rem;
+    /* background-color: #1F1F23; */
+    height: 90vh;
+}
+.mainleft{
+    width: 20vw;
+}
+.mainright{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    align-items: center;
+    gap: 2rem;
+    min-height: 90vh;
+    height: auto;
+    /* overflow: hidden; */
+}
+.mainleftContainer{
+    background-color: #131313;
+    height: 85vh;
+    border-radius: 0.3rem;
+    padding: 3rem 0.8rem;
+}
+.header{
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+.Options{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 0.8rem; /* Space between grid items */
+    color: white;
+}
+.Option{
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #1F1F23;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem; 
+    border: 1px solid #27272A;
+    span{
+        font-size: 0.7rem;
+    }
+}
+.bubbleIcon{
+    color: #4B83FF;
+    background-color: transparent;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.video{
+    font-size: 0.9rem;
+}
+.gifContainer{
+    padding: 0rem 1rem;
+}
+.gif{
+    font-size: 1.8rem;
+}
+.inputIcon{
+    background-color: transparent;
+    color: #FFA54C;
+    font-weight: 800;
+}
+
+
+/* Nav right */
+/* .mainright{
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+} */
+.startbtn{
+    display: flex;
+    padding: 0.7rem;
+    width: 14rem;
+    background-color: transparent;
+    color: white;
+    border-radius: 0.3rem;
+    border: none;
+    background-color: #131313;
+    span{
+        padding-left: 0.5rem;
+        font-weight: 700;
+        font-size: 0.8rem;
+    }
+}
+
+/* Textbox */
+.textboxContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 14rem;
+    background: #18181B;
+    position: relative;
+  }
+  .textboxLabel {
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .inputWrapper {
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  .textboxInput {
+    flex: 1;
+    /* background-color: transparent; */
+    background-color: #1F1F23;
+    border: none;
+    color: #ffffff;
+    padding: 5px;
+    outline: none;
+    border-radius: 0.5rem;
+  }
+  
+  .textboxInput::placeholder {
+    color: #a0a0a0;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+.textboxBtn{
+      background-color: transparent;
+      border: none;
+    }
+.deleteIcon{
+    position: relative;
+    color: red;
+    top: -4rem;
+    right: -6.8rem;
+}

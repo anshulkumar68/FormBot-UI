@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import LandingPage from './pages/LandingPage'
 import Dashboard from './pages/Dashboard'
 import Settings from './pages/Settings'
+import TypeBot from './pages/TypeBot'
 
 function App() {
 
