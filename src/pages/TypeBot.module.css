@@ -91,7 +91,7 @@ hr {
 .main{
     display:  flex;
     padding: 1rem 1rem;
-    /* background-color: #1F1F23; */
+    background-color: #1F1F23;
     height: 90vh;
 }
 .mainleft{

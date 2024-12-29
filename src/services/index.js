@@ -71,3 +71,14 @@ export const deleteFolder = async(id)=>{
   })
 }
 
+// CREATE FORM
+export const createForm = async (data) =>{
+  return await fetch(`${URL}/form`, {
+    method : "POST",
+    headers : {
+      "Content-Type": "application/json",
+      "Authorization": `${localStorage.getItem('token')}`,
+    },
+    body: JSON.stringify(data)
+  })
+}
