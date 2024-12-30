@@ -27,7 +27,7 @@ const CreateFolder = ({ setIsFolderPopupOpen, addFolder }) => {
         setError(errorData.message || 'failed to create folder')
       }
     } catch (error) {
-      console.error("Error creating folder:", error);
+      console.error("error creating folder:", error);
       setError("error occurred please try again");
     }
   };

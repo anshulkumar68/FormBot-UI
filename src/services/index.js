@@ -73,6 +73,7 @@ export const deleteFolder = async(id)=>{
 
 // CREATE FORM
 export const createForm = async (data) =>{
+  console.log("createForm called:", data)
   return await fetch(`${URL}/form`, {
     method : "POST",
     headers : {
@@ -80,5 +81,29 @@ export const createForm = async (data) =>{
       "Authorization": `${localStorage.getItem('token')}`,
     },
     body: JSON.stringify(data)
+  })
+}
+
+// GET FORM
+export const getForm = async()=>{
+  console.log("getForm called")
+  return await fetch(`${URL}/form`, {
+    method : "GET",
+    headers : {
+      "Content-Type": "application/json",
+      "Authorization": `${localStorage.getItem('token')}`,
+    },
+  })
+}
+
+// DELETE FIELD
+export const deleteField = async(formId, fieldId)=>{
+  console.log("deleteForm called")
+  return await fetch(`${URL}/form/${formId}/field/${fieldId}`, {
+    method : 'DELETE',
+    headers : {
+      "Content-Type": "application/json",
+      "Authorization": `${localStorage.getItem('token')}`,
+    },
   })
 }
