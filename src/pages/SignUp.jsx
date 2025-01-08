@@ -78,9 +78,11 @@ const SignUp = () => {
   return (
     <>
       <div className={styles.container}>
-        <p className={styles.backButton}>
+        <Link to="/login">
+        <p className={styles.backButton} >
           <IoArrowBack />
         </p>
+        </Link>
         <div className={`${styles.shapes} ${styles.triangle}`}>
           <img src={loginTriangle} alt="" />
         </div>

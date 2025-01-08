@@ -19,7 +19,7 @@ const LandingPage = () => {
           </div>
           <div className={styles.navbarActions}>
             <Link to="/login"><button className={`${styles.btn} ${styles.btnSignin}`} >Sign In</button></Link>
-            <Link to="/"><button className={`${styles.btn} ${styles.btnCreate}`}>Create a FormBot</button></Link>          
+            <Link to="/signup"><button className={`${styles.btn} ${styles.btnCreate}`}>Create a FormBot</button></Link>          
           </div>
         </nav>
 
@@ -30,9 +30,9 @@ const LandingPage = () => {
       <h2 className={styles.gradientText}>visually</h2>  <p className={styles.description}>
         Typebot gives you powerful blocks to create unique chat experiences. Embed them
         anywhere on your web/mobile apps and start collecting results like magic.     </p>
-      <button className={`${styles.btn} ${styles.btnCreate}`}>
+        <Link to="/signup"><button className={`${styles.btn} ${styles.btnCreate}`}>
         Create a FormBot for free
-      </button>
+      </button></Link>   
     </div>
           <img src={lpEllipse} alt="ellipse image" className={`${styles.shapes} ${styles.ellipse}`}/>
         </main>

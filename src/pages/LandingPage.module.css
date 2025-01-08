@@ -1,12 +1,9 @@
-html,
-body {
-  width: 98.5vw;
-}
-
 .container{
   background-color: #121212;
   position: relative;
-  width: 96vw;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Navbar container */
