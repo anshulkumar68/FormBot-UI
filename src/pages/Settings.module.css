@@ -1,0 +1,119 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #121212;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.settingsForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 1px solid grey;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  padding: 0.75rem 1rem;
+}
+
+.icon {
+  font-size: 1.2rem;
+  color: #888;
+  margin-right: 0.5rem;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.input::placeholder {
+  color: #888;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.updateBtn {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #1a5fff;
+  border: none;
+  border-radius: 1.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.updateBtn:hover {
+  background-color: #0044cc;
+}
+.logoutContainer{
+  margin: 3rem 3rem;
+}
+.logoutBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  color: #ff4d4d;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 1.2rem;
+  span{
+    font-size: 0.8rem;
+  }
+}
+
+.errorText {
+  position: absolute;
+  bottom: -1.2rem;
+  left: 1rem;
+  font-size: 0.75rem;
+  color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
